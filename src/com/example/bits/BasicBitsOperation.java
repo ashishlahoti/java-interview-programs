@@ -3,16 +3,18 @@ package com.example.bits;
 public class BasicBitsOperation {
 
 	public static void main(String args[]){
-		int num = 0;
-		num  |= 1 << 1;
-		//num = setBit(num, 4);
-		//num = setBit(num, 5);
-		//num = setBit(num, 1);
-		//num = setBit(num, 10);
-		//num = setBit(num, 2);
+		int num = 0;                  // 0
+		num = setBit(num, 31);        // 10000000000000000000000000000000
+		System.out.println(isExactlyOneBitSet(num));
+		System.out.println(isBitSet(num, 31));
+		num = setBit(num, 0);         // 10000000000000000000000000000001
+		num = setBit(num, 1);         // 10000000000000000000000000000011
+		num = setBit(num, 3);         // 10000000000000000000000000001011
+		num = setBit(num, 5);         // 10000000000000000000000000101011
+		System.out.println(Integer.toBinaryString(num));
 		System.out.println(isBitSet(num, 2));
 		System.out.println(isExactlyOneBitSet(num));
-		System.out.println(Integer.toBinaryString(num));
+		
 	}
 	
 	public static int toggleBit(int num, int index){

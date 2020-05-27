@@ -10,85 +10,97 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
-
+import java.util.stream.Stream;
+/**
+ * Using Method reference or Double colon operator
+ * 
+ * @author ashishkumarlahoti
+ */
 public class DoubleColonUsage {
 
 	public static void main(String[] args) {
 		
 		List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+		// Lambda
 		numbers.forEach(number->System.out.println(number));
+		// Double Colon
+		numbers.forEach(System.out::println);
 		
 		
-		//numbers.forEach(System.out::println);
 		
 		List<String> languages = Arrays.asList("java", "javascript", "css", "html");
-		// anonymous class
+		// Anonymous class
 		languages.forEach(new Consumer<String>() {       
 		    @Override
 		    public void accept(String str) {
 		        System.out.println(str);
 		    }
 		});
-		// lambda
-		//languages.forEach(str -> System.out.println(str));
-		// method references
-		//languages.forEach(System.out::println); 
+		// Lambda
+		languages.forEach(str -> System.out.println(str));
+		// Double Colon
+		languages.forEach(System.out::println); 
 		
-		// lambda expression
-		//languages.stream().map(str -> str.toUpperCase()).forEach(str -> System.out.println(str));
-
-		// method reference
-		//languages.stream().map(String::toUpperCase).forEach(System.out::println);;    
+	
 		
+		// Lambda
+		languages.stream().map(str -> str.toUpperCase()).forEach(str -> System.out.println(str));
+		// Double Colon
+		languages.stream().map(String::toUpperCase).forEach(System.out::println);;    
+		
+		
+		
+		// Lambda
 		numbers.stream().map(number -> new Calculator().square(number)).forEach(number -> System.out.println(number));
+		// Double Colon
+		numbers.stream().map(new Calculator()::square).forEach(System.out::println);
 		
-		//numbers.stream().map(Calculator::square).forEach(System.out::println);
+		
 		
 		List<String> str_numbers = Arrays.asList("10", "20", "30");
 		List<String> str_doubles = Arrays.asList("10.31", "20.96", "30.14");
-
 		// Lambda expression
-		//str_numbers.stream().map(n -> Integer.parseInt(n)).forEach(n -> System.out.println(n));
-		//str_doubles.stream().map(d -> Double.parseDouble(d)).forEach(d -> System.out.println(d));
-
+		str_numbers.stream().map(n -> Integer.parseInt(n)).forEach(n -> System.out.println(n));
+		str_doubles.stream().map(d -> Double.parseDouble(d)).forEach(d -> System.out.println(d));
 		// Method Reference
-		//str_numbers.stream().map(Integer::parseInt).forEach(System.out::println);
-		//str_doubles.stream().map(Double::parseDouble).forEach(System.out::println);
+		str_numbers.stream().map(Integer::parseInt).forEach(System.out::println);
+		str_doubles.stream().map(Double::parseDouble).forEach(System.out::println);
 		
-		List<String> years = Arrays.asList("2019", "2020", "2021");
-
-        
+		
+		
+		List<String> years = Arrays.asList("2019", "2020", "2021");       
 		// Lambda expression
-		//years.stream().map(year -> Integer.parseInt(year)).forEach(year -> System.out.println(year));
-
+		years.stream().map(year -> Integer.parseInt(year)).forEach(year -> System.out.println(year));
 		// Method Reference
-		//years.stream().map(Integer::parseInt).forEach(System.out::println);
+		years.stream().map(Integer::parseInt).forEach(System.out::println);
 		 
+		
+		
 		List<Tutorial> tutorials = Arrays.asList(new Tutorial[] {
 				new Tutorial("Streams in Java 8", 30, 4.2),
 				new Tutorial("What's new in Java 11", 25, 4.8),
 				new Tutorial("Core Java Concepts", 45, 3.5)});
-		
+			
 		tutorials.forEach(tutorial -> System.out.println(tutorial));
-		//tutorials.forEach(System.out::println);
+		tutorials.forEach(System.out::println);
 
 		//static method
 		//tutorials.stream().map(tutorial -> Tutorial.toUpperCase(tutorial)).forEach(s -> System.out.println(s));
 		//tutorials.stream().map(Tutorial::toUpperCase).forEach(System.out::println); 
 		
 		//instance method
-		//tutorials.stream().map(tutorial -> tutorial.getName()).map(name -> name.toUpperCase()).forEach(s -> System.out.println(s));
-		//tutorials.stream().map(Tutorial::getName).map(String::toUpperCase).forEach(System.out::println);
-		//tutorials.stream().sorted((tutorial1, tutorial2) -> Tutorial.compareByRating(tutorial1, tutorial2)).forEach(tutorial -> System.out.println(tutorial));
-		//tutorials.stream().sorted((tutorial1, tutorial2) -> Tutorial.compareByDuration(tutorial1, tutorial2)).forEach(tutorial -> System.out.println(tutorial));
-		//tutorials.stream().sorted(Tutorial::compareByRating).forEach(System.out::println);
-		//tutorials.stream().sorted(Tutorial::compareByDuration).forEach(System.out::println);
+		tutorials.stream().map(tutorial -> tutorial.getName()).map(name -> name.toUpperCase()).forEach(s -> System.out.println(s));
+		tutorials.stream().map(Tutorial::getName).map(String::toUpperCase).forEach(System.out::println);
+		tutorials.stream().sorted((tutorial1, tutorial2) -> Tutorial.compareByRating(tutorial1, tutorial2)).forEach(tutorial -> System.out.println(tutorial));
+		tutorials.stream().sorted((tutorial1, tutorial2) -> Tutorial.compareByDuration(tutorial1, tutorial2)).forEach(tutorial -> System.out.println(tutorial));
+		tutorials.stream().sorted(Tutorial::compareByRating).forEach(System.out::println);
+		tutorials.stream().sorted(Tutorial::compareByDuration).forEach(System.out::println);
 		
-		 //Supplier<Map> obj1 = () -> new HashMap();
-		 
-		 
-		//Supplier<int[]> arrayMaker1 = () -> new int[10];
-		//System.out.println(arrayMaker1.get().length);
+		
+		// NEW Keyword
+		Supplier<Map> obj1 = () -> new HashMap();
+		Supplier<int[]> arrayMaker1 = () -> new int[10];
+		System.out.println(arrayMaker1.get().length);
 		
 		IntFunction<int[]> arrayMaker = int[]::new;
 		int[] array = arrayMaker.apply(10);  // creates an int[10]
@@ -131,6 +143,9 @@ public class DoubleColonUsage {
 		List<AdvanceTutorial> adv_tutorials = Arrays.asList(new AdvanceTutorial[] {
 				new AdvanceTutorial("Streams in Java 8", 30, 4.2),
 				new AdvanceTutorial("What's new in Java 11", 25, 4.8)});
+		
+		Stream.of("java", "spring", "spring boot").filter(s -> s == "java");
+		Stream.of(1, 2, 3).filter((i) -> { return i ==1;});
 	}
 }
 
