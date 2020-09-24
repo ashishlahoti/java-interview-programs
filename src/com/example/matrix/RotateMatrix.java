@@ -1,4 +1,4 @@
-package com.example.string;
+package com.example.matrix;
 
 import java.util.Random;
 

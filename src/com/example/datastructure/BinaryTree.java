@@ -1,22 +1,21 @@
 package com.example.datastructure;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree {
 	
 	public static void main(String[] args){
-		Tree tree = new Tree(new Node(6));
-		tree.insert(new Node(5));
-		tree.insert(new Node(3));
-		tree.insert(new Node(8));
-		tree.insert(new Node(4));
-		tree.insert(new Node(9));
-		tree.insert(new Node(2));
-		tree.insert(new Node(7));
-		tree.insert(new Node(1));
+		Tree tree = new Tree(new Node1(6));
+		tree.insert(new Node1(5));
+		tree.insert(new Node1(3));
+		tree.insert(new Node1(8));
+		tree.insert(new Node1(4));
+		tree.insert(new Node1(9));
+		tree.insert(new Node1(2));
+		tree.insert(new Node1(7));
+		tree.insert(new Node1(1));
 		System.out.println("in order : ");
 		tree.inorder();
 		System.out.println("\npre order : ");
@@ -34,28 +33,28 @@ public class BinaryTree {
 
 class Tree {
 
-	private Node root = null;
+	private Node1 root = null;
 	
-	public Tree(Node node) {
+	public Tree(Node1 node) {
 		this.root = node;
 	}
 
-	public Node getRoot() {
+	public Node1 getRoot() {
 		return root;
 	}
 
-	public void setRoot(Node root) {
+	public void setRoot(Node1 root) {
 		this.root = root;
 	}
 	
-	public boolean insert(Node node) {
+	public boolean insert(Node1 node) {
 		if(node == null){
 			return false;
 		}
 		return insert(root, node);
 	}
 	
-	private boolean insert(Node root, Node node) {
+	private boolean insert(Node1 root, Node1 node) {
 		if(node.getValue() > root.getValue()){
 			if(root.getRightNode()!=null){
 				return insert(root.getRightNode(), node);
@@ -77,7 +76,7 @@ class Tree {
 		inorder(root);
 	}
 	
-	private void inorder(Node node){
+	private void inorder(Node1 node){
 		if(node != null){
 			inorder(node.getLeftNode());
 			System.out.print(node.getValue()+" ");
@@ -89,7 +88,7 @@ class Tree {
 		preorder(root);
 	}
 	
-	private void preorder(Node node){
+	private void preorder(Node1 node){
 		if(node != null){
 			System.out.print(node.getValue()+" ");
 			preorder(node.getLeftNode());
@@ -101,7 +100,7 @@ class Tree {
 		postorder(root);
 	}
 	
-	private void postorder(Node node){
+	private void postorder(Node1 node){
 		if(node != null){
 			postorder(node.getLeftNode());
 			postorder(node.getRightNode());
@@ -113,7 +112,7 @@ class Tree {
 		return size(root);
 	}
 	
-	private int size(Node node){
+	private int size(Node1 node){
 		if(node != null){
 			return size(node.getLeftNode()) + 1 + size(node.getRightNode());
 		}
@@ -124,12 +123,12 @@ class Tree {
 		breadthFirst(root);
 	}
 	
-	private void breadthFirst(Node node){
-		Queue<Node> queue = new LinkedList<Node>() ;
+	private void breadthFirst(Node1 node){
+		Queue<Node1> queue = new LinkedList<Node1>() ;
 		if(node != null){
 			queue.add(node);
 			while(!queue.isEmpty()){
-				Node iNode = queue.remove();
+				Node1 iNode = queue.remove();
 				System.out.print(iNode.getValue() + " ");
 				if(iNode.getLeftNode() != null) {
 					queue.add(iNode.getLeftNode());
@@ -145,12 +144,12 @@ class Tree {
 		depthFirst(root);
 	}
 	
-	private void depthFirst(Node node){
-		Stack<Node> stack = new Stack<Node>() ;
+	private void depthFirst(Node1 node){
+		Stack<Node1> stack = new Stack<Node1>() ;
 		if(node != null){
 			stack.add(node);
 			while(!stack.isEmpty()){
-				Node iNode = stack.pop();
+				Node1 iNode = stack.pop();
 				System.out.print(iNode.getValue() + " ");
 				if(iNode.getRightNode() != null) {
 					stack.push(iNode.getRightNode());
@@ -166,7 +165,7 @@ class Tree {
 		return isBST(root, null, null);
 	}
 	
-	private boolean isBST(Node node, Integer min, Integer max){
+	private boolean isBST(Node1 node, Integer min, Integer max){
 		if(node == null) return true;
 		if(min != null && node.getValue() < min) return false;
 		if(node.getLeftNode() != null && node.getValue() <= node.getLeftNode().getValue()) return false;
@@ -175,26 +174,26 @@ class Tree {
 		return isBST(node.getLeftNode(), min, node.getValue()) && isBST(node.getRightNode(), node.getValue(), max);
 	}
 }
-class Node {
+class Node1 {
 	
-	private Node leftNode;
-	private Node rightNode;
+	private Node1 leftNode;
+	private Node1 rightNode;
 	private int value;
 	
-	public Node(int value) {
+	public Node1(int value) {
 		this.value = value;
 	}
 	
-	public Node getLeftNode() {
+	public Node1 getLeftNode() {
 		return leftNode;
 	}
-	public void setLeftNode(Node leftNode) {
+	public void setLeftNode(Node1 leftNode) {
 		this.leftNode = leftNode;
 	}
-	public Node getRightNode() {
+	public Node1 getRightNode() {
 		return rightNode;
 	}
-	public void setRightNode(Node rightNode) {
+	public void setRightNode(Node1 rightNode) {
 		this.rightNode = rightNode;
 	}
 	public int getValue() {

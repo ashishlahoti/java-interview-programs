@@ -1,4 +1,4 @@
-package com.example.core.datastructure;
+package com.example.datastructure;
 
 public class Stack {
 	
@@ -15,28 +15,28 @@ public class Stack {
 		stack.print();
 	}
 
-	Node<Integer> top;
+	ListNode<Integer> top;
 	
-	Node<Integer> push(int i){
-		Node<Integer> n = new Node<>(i);
-		n.setNext(top);
+	ListNode<Integer> push(int i){
+		ListNode<Integer> n = new ListNode<>(i);
+		n.next = (top);
 		top = n;
 		return n;
 	}
 	
 	int pop(){
-		Node<Integer> n = top;
-		top = top.getNext();
-		return n.getData();
+		ListNode<Integer> n = top;
+		top = top.next;
+		return n.val;
 	}
 	
 	void print(){
 		System.out.println("TOP");
 		if(top!=null){
-			Node<Integer> n = top;
+			ListNode<Integer> n = top;
 			while(n != null){
-				System.out.println(n.getData());
-				n = n.getNext();
+				System.out.println(n.val);
+				n = n.next;
 			}
 		}
 	}
@@ -45,12 +45,12 @@ public class Stack {
 		reverse(top, null);
 	}
 	
-	void reverse(Node<Integer> current, Node<Integer> previous){
+	void reverse(ListNode<Integer> current, ListNode<Integer> previous){
 		top = current;
-		if(current.getNext() != null){
-			reverse(current.getNext(), current);
+		if(current.next != null){
+			reverse(current.next, current);
 		}
-		current.setNext(previous);
+		current.next = (previous);
 	}
 	
 	boolean isEmpty(){

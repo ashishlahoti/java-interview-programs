@@ -1,4 +1,4 @@
-package com.example.string;
+package com.example.numbers;
 
 public class MPowerN {
 

@@ -1,4 +1,4 @@
-package com.example.core.datastructure;
+package com.example.datastructure;
 
 public class Queue {
 	
@@ -19,12 +19,12 @@ public class Queue {
 		queue.print();
 	}
 
-	Node<Integer> first, last;
+	ListNode<Integer> first, last;
 	
-	Node<Integer> enque(int i){
-		Node<Integer> n = new Node<>(i);
+	ListNode<Integer> enque(int i){
+		ListNode<Integer> n = new ListNode<>(i);
 		if(last!=null){
-			n.setNext(last);
+			n.next = (last);
 		}
 		last = n;
 		if(first==null){
@@ -34,23 +34,23 @@ public class Queue {
 	}
 	
 	int deque(){
-		Node<Integer> n = last;
-		Node<Integer> previous = null;
-		while(n.getNext()!=null){
+		ListNode<Integer> n = last;
+		ListNode<Integer> previous = null;
+		while(n.next!=null){
 			previous = n;
-			n = n.getNext();
+			n = n.next;
 		}
-		n = previous.getNext();
-		previous.setNext(null);
-		return n.getData();
+		n = previous.next;
+		previous.next = (null);
+		return n.val;
 	}
 	
 	void print(){
-		Node n = last;
+		ListNode n = last;
 		System.out.print("Last ");
 		while(n != null){
-			System.out.print(n.getData() + ", ");
-			n = n.getNext();
+			System.out.print(n.val + ", ");
+			n = n.next;
 		}
 		System.out.println("First ");
 		
