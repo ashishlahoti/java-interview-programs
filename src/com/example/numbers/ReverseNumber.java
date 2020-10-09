@@ -3,14 +3,11 @@ package com.example.numbers;
 public class ReverseNumber {
 
 	public static void main(String[] args) {
-		/*
 		System.out.println(reverse(123));
 		System.out.println(reverse(0));
 		System.out.println(reverse(2));
 		System.out.println(reverse(-123));
-		*/
 		System.out.println(reverse(1534236469));
-		System.out.println(964632435*10);
 	}
 	
 	public static int reverse(int x) {

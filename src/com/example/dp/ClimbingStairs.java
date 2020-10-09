@@ -1,5 +1,9 @@
 package com.example.dp;
 
+/**
+ * How many ways you can climb to given number of stairs
+ * Given that you can take either one step or two steps at a time. 
+ */
 public class ClimbingStairs {
 
 	public static void main(String[] args) {

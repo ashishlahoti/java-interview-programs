@@ -1,30 +1,29 @@
 package com.example.matrix;
 
-import java.util.Random;
-
 public class RotateMatrix {
 
 	public static void main(String[] args){
-		int[][] matrix = new int[4][4];
+		int[][] matrix = new int[5][5];
 		fillMatrix(matrix);
 		print(matrix);
 		rotateBy90(matrix);
 		print(matrix);
+		System.out.println(Math.floor(matrix.length/2f));
+		System.out.println(Math.ceil(matrix.length/2f));
 	}
 	
 	public static void rotateBy90(int[][] matrix){
-		for(int i=0; i < 1; i++){
-			for(int j = 0; j < 2; j++){
-				int temp = matrix[j][matrix.length-1];
-				matrix[j][matrix.length-1] = matrix[i][j];
+		for(int i=0; i < Math.floor(matrix.length/2f); i++){
+			for(int j = 0; j < Math.ceil(matrix.length/2f); j++){
+				int temp = matrix[i][j]; //00 //01
+				int temp1 = matrix[j][matrix.length-1-i]; //02 //12
+				int temp2 = matrix[matrix.length-1-i][matrix.length-1-j]; //22 //21
+				int temp3 = matrix[matrix.length-1-j][i]; //20 //10
 				
-				int temp1 = matrix[matrix.length-1][matrix.length-1-j];
-				matrix[matrix.length-1][matrix.length-1-j] = temp;
-				
-				int temp2 = matrix[matrix.length-1][j];
-				matrix[matrix.length-1][j] = temp1;
-				
-				matrix[i][j] = temp2;
+				matrix[i][j] = temp3;
+				matrix[j][matrix.length-1-i] = temp;
+				matrix[matrix.length-i-1][matrix.length-j-1] = temp1;
+				matrix[matrix.length-1-j][i] = temp2;				
 			}
 		}
 	}

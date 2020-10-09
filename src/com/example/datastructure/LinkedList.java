@@ -180,5 +180,44 @@ public class LinkedList<T> {
 		}
 		return size;
 	}
+	
+	public ListNode mergeTwoLists(ListNode<Integer> l1, ListNode<Integer> l2) {
+		int val = Integer.MAX_VALUE;
+		int counter = 0;
+		ListNode head = null;
+		ListNode currentNode = null;
+		if(l1 == null && l2 == null) {
+			return head;
+		}
+        while(l1 != null ||  l2 !=null) {
+        	if(l1 == null) {
+				val = l2.val;
+				l2 = l2.next;
+			}else if(l2 == null){
+				val = l1.val;
+				l1 = l1.next;
+			}else {
+				if(l1.val <=l2.val) {
+					val = l1.val;	
+				    l1 = l1.next;
+				}else {
+					val = l2.val;
+					l2 = l2.next;
+				}
+			}
+        	if(counter == 0) {
+        		head = new ListNode(val);
+        		currentNode = head;
+        	}else {
+        		ListNode newNode = new ListNode(val);
+        		if(currentNode != null) {
+        			currentNode.next = newNode;
+        			currentNode = newNode;
+        		}       		
+        	}     
+        	counter++;
+        }
+        return head;
+    }
 
 }

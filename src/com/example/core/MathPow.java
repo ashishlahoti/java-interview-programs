@@ -1,4 +1,4 @@
-package com.example.core.method;
+package com.example.core;
 
 /**
  * Usage of Math.pow() function

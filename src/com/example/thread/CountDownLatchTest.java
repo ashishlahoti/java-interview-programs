@@ -10,33 +10,35 @@ public class CountDownLatchTest {
 
 	public static void main(String[] args) throws InterruptedException{
 		CountDownLatch latch = new CountDownLatch(3);
-		Thread cacheService = new Thread(new CountDownLatchRunnable("Cache Service", latch));
-		Thread alertService = new Thread(new CountDownLatchRunnable("Alert Service", latch));
-		Thread validationService = new Thread(new CountDownLatchRunnable("Validation Service", latch));
+		Thread cacheService = new Thread(new Service("Cache Service", latch));
+		Thread alertService = new Thread(new Service("Alert Service", latch));
+		Thread validationService = new Thread(new Service("Validation Service", latch));
+		
 		cacheService.start();
 		alertService.start();
 		validationService.start();
+		
 		latch.await(); //wait here till latch count reaches 0 then only process next line of code.
 		System.out.println("All Services are up and running. Main Thread started processing...");
 		
 	}
-}
-
-class CountDownLatchRunnable implements Runnable{
 	
-	private String name;
-	private CountDownLatch latch;
-	
-	CountDownLatchRunnable(String name, CountDownLatch latch){
-		this.name = name;
-		this.latch = latch;
-	}
-
-	@Override
-	public void run() {
-		System.out.println(name + " is up");
-		latch.countDown();
+	static class Service implements Runnable{
 		
+		private String name;
+		private CountDownLatch latch;
+		
+		Service(String name, CountDownLatch latch){
+			this.name = name;
+			this.latch = latch;
+		}
+
+		@Override
+		public void run() {
+			// startup task
+			System.out.println(name + " is up");
+			latch.countDown();
+			// continue w/ other tasks
+		}		
 	}
-	
 }

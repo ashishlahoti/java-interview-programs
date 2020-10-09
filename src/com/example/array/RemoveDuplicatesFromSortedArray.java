@@ -1,5 +1,9 @@
 package com.example.array;
 
+/**
+ * Remove the duplicate elements from the array and move the remaining arrays to the left
+ * Return the count of remaining elements
+ */
 public class RemoveDuplicatesFromSortedArray {
 
 	public static void main(String[] args) {
@@ -9,16 +13,15 @@ public class RemoveDuplicatesFromSortedArray {
 			System.out.println(nums[i]);
 		}
 	}
-
+	
 	public static int removeDuplicates(int[] nums) {
-		if(nums.length == 0) return 0;
-		int i = 0;
-		for (int j = 1; j < nums.length; j++) {
-			if(nums[i] != nums[j]) {
-				i++;
-				nums[i] = nums[j];
+		int cursor = 0;
+		for(int i = 1; i< nums.length; i++) {
+			if(nums[i] > nums[cursor]) {
+				cursor++;
+				nums[cursor] = nums[i];				
 			}
 		}
-		return i+1;
+		return cursor+1;
 	}
 }

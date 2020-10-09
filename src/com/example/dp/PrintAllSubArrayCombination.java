@@ -1,6 +1,6 @@
-package com.example.core;
+package com.example.dp;
 
-public class PrintAllArrayCombination {
+public class PrintAllSubArrayCombination {
 
 	public static void main(String[] args) {
 		print(new int[]{1, 2, 3, 4, 5, 6}, 6, 3, 0, new int[3], 0);

@@ -37,40 +37,27 @@ public class BalancedBraces {
     }
     
     public static boolean checkBraces(String values) {
-    	Stack<Character> option = new Stack<>();
+    	Stack<Character> stack = new Stack<>();
     	for(int i = 0; i < values.length(); i++) {
     		char val = values.charAt(i);
-    		char stackVal;
     		switch (val) {
 			case '{':
 			case '[':
 			case '(':
-				option.push(val);
+				stack.push(val);
 				break;
 			case '}':
-				if(option.isEmpty()) {
-					return false;
-				}
-				stackVal = option.pop();
-				if(stackVal != '{') {
+				if(stack.isEmpty() || stack.pop() != '{') {
 					return false;
 				}
 				break;
 			case ']':
-				if(option.isEmpty()) {
-					return false;
-				}
-				stackVal = option.pop();
-				if(stackVal != '[') {
+				if(stack.isEmpty() || stack.pop() != '[') {
 					return false;
 				}
 				break;
 			case ')':
-				if(option.isEmpty()) {
-					return false;
-				}
-				stackVal = option.pop();
-				if(stackVal != '(') {
+				if(stack.isEmpty() || stack.pop() != '(') {
 					return false;
 				}
 				break;
@@ -78,6 +65,6 @@ public class BalancedBraces {
 				return false;
 			}
     	}
-        return option.isEmpty();
+        return stack.isEmpty();
     }
 }

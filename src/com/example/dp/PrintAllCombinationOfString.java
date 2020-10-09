@@ -15,8 +15,8 @@ public class PrintAllCombinationOfString {
 		}
 		String sub = part + content.charAt(index);
 
-		//System.out.println(sub);
-		permutation("", sub);
+		System.out.println(sub);
+		//permutation("", sub);
 
 		substring(content, sub, index + 1);
 	}
