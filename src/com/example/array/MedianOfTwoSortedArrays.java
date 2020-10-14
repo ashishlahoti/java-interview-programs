@@ -36,8 +36,6 @@ public class MedianOfTwoSortedArrays {
         	j++;
         	k++;
         }
-       // System.out.println(k);
-       // System.out.println(Arrays.toString(mergedNums));
         if(k%2 != 0) {
         	return mergedNums[(k-1)/2];
         }else {

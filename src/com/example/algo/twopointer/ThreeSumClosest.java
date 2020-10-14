@@ -1,8 +1,8 @@
-package com.example.array;
+package com.example.algo.twopointer;
 
 import java.util.Arrays;
 
-public class ThreeClosestSum {
+public class ThreeSumClosest {
 	public static void main(String[] args) {
 		System.out.println(threeSumClosest(new int[] {0,2,1,-3}, 1));
 	}

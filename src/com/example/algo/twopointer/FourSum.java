@@ -1,4 +1,4 @@
-package com.example.array;
+package com.example.algo.twopointer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,6 @@ import java.util.Set;
 public class FourSum {
 
 	public static void main(String[] args) {
-
 		List<List<Integer>> listOfList = fourSum(new int[] { 1,0,-1,0,-2,2 }, 0);
 		System.out.println(listOfList);
 		listOfList = fourSum(new int[] {}, 0);
@@ -18,6 +17,7 @@ public class FourSum {
 		System.out.println(listOfList);
 	}
 
+	// Two Pointer Solution O(n^3)
 	public static List<List<Integer>> fourSum(int[] nums, int target) {
 		Set<List<Integer>> set = new HashSet<>();
 		Arrays.sort(nums);

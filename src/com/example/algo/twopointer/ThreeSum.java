@@ -1,4 +1,4 @@
-package com.example.array;
+package com.example.algo.twopointer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,6 @@ import java.util.Set;
 public class ThreeSum {
 
 	public static void main(String[] args) {
-
 		List<List<Integer>> listOfList = threeSum1(new int[] { -1, 0, 1, 2, -1, -4 });
 		System.out.println(listOfList);
 		listOfList = threeSum1(new int[] { -1, 0, 1, 2, -1, -4 });
@@ -19,6 +18,7 @@ public class ThreeSum {
 		System.out.println(listOfList);
 	}
 
+	// Naive Solution O(n^3)
 	public static List<List<Integer>> threeSum(int[] nums) {
 		Set<List<Integer>> listOfList = new HashSet<>();
 		Arrays.sort(nums);
@@ -38,6 +38,7 @@ public class ThreeSum {
 		return new LinkedList<>(listOfList);
 	}
 
+	// Two Pointer Solution O(n^2)
 	public static List<List<Integer>> threeSum1(int[] nums) {
 		Set<List<Integer>> set = new HashSet<>();
 		Arrays.sort(nums);

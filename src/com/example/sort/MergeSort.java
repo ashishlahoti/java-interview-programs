@@ -13,11 +13,11 @@ public class MergeSort {
 	private static void sort(int[] array, int lowerIndex, int higherIndex){
 		if(lowerIndex < higherIndex){
 			int middleIndex = (lowerIndex + higherIndex)/2;
+			
 			sort(array, lowerIndex, middleIndex);
 			sort(array, middleIndex + 1, higherIndex);
 			
-			merge(array, lowerIndex, middleIndex, higherIndex);
-			
+			merge(array, lowerIndex, middleIndex, higherIndex);			
 		}
 	}
 	

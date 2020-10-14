@@ -7,6 +7,8 @@ public class PrintAllCombinationOfString {
 		for (int i = 0; i < s.length(); i++) {
 			substring(s, "", i);
 		}
+		
+		permutation("", "abc");
 	}
 	
 	public static void substring(String content, String part, int index) {

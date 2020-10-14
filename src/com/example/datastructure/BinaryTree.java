@@ -35,6 +35,7 @@ public class BinaryTree {
 		tree.inOrderTraversal(tree.root);
 		System.out.print("\nPre_Order:\t");
 		tree.preOrderTraversal(tree.root);
+		//tree.delete(tree.root, 9);
 		System.out.print("\nPost_Order:\t");
 		tree.postOrderTraversal(tree.root);
 		System.out.print("\nBreadth_First:\t");
@@ -60,20 +61,48 @@ class Tree {
 		insert(this.root, val);
 	}
 
-	public void insert(TreeNode root, int val) {
-		if (val <= root.val) {
-			if (root.left == null) {
-				root.left = new TreeNode(val);
-			} else {
-				insert(root.left, val);
-			}
-		} else {
-			if (root.right == null) {
-				root.right = new TreeNode(val);
-			} else {
-				insert(root.right, val);
-			}
+	public TreeNode insert(TreeNode node, int val) {
+		if(node == null) {
+			return new TreeNode(val);
+		}		
+		if(val < node.val) {
+			node.left = insert(node.left, val);
+		}else if(val > node.val){
+			node.right = insert(node.right, val);
+		}else {
+			return node;
 		}
+		return node;
+	}
+	
+	
+	public TreeNode delete(TreeNode node, int val) {
+		if(node == null) {
+			return node;
+		}		
+		if (val < node.val) {
+	        node.left = delete(node.left, val);
+	    } else if (val < node.val) {
+	        node.right = delete(node.right, val);
+	    } else { // found the node with key 
+	    	// node with only one child or no child  
+	        if (node.left == null || node.right == null) {
+	            node = (node.left == null) ? node.right : node.left;
+	        } else {
+	            TreeNode mostLeftChild = mostLeftChild(node.right);
+	            node.val = mostLeftChild.val;
+	            node.right = delete(node.right, node.val);
+	        }
+	    }
+		return node;
+	}
+	
+	private TreeNode mostLeftChild(TreeNode node) {
+		TreeNode current = node;
+		while(current.left != null) {
+			current = current.left;
+		}
+		return current;
 	}
 
 	public void inOrderTraversal(TreeNode node) {

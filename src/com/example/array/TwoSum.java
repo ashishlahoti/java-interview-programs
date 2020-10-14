@@ -14,6 +14,7 @@ public class TwoSum {
 		System.out.println(sum[0] + "-" + sum[1]);
 	}
 
+	// Naive Solution O(n^2)
 	public static int[] twoSum(int[] nums, int target) {
 		int[] sum = new int[2];
 		for (int i = 0; i < nums.length; i++) {
@@ -28,12 +29,13 @@ public class TwoSum {
 		return sum;
 	}
 
+	// Using Space memory O(n)
 	public static int[] twoSum1(int[] nums, int target) {
 		int[] sum = new int[2];
 		Set<Integer> set = new HashSet<>();
 		for (int i = 0; i < nums.length; i++) {
-			if (set.contains(target-nums[i])) {
-				sum[0] = target-nums[i];
+			if (set.contains(target - nums[i])) {
+				sum[0] = target - nums[i];
 				sum[1] = nums[i];
 				return sum;
 			} else {
