@@ -1,4 +1,4 @@
-package com.example.dp;
+package com.example.algo.recursive;
 
 public class Test {
 

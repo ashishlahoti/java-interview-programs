@@ -1,46 +1,55 @@
 package com.example.thread;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class DeadlockTest {
+	
+	private Lock lockA = new ReentrantLock();
+	private Lock lockB = new ReentrantLock();
+	private CountDownLatch latch = new CountDownLatch(2);
 
 	public static void main(String[] args){
-		LockObject lock1 = new LockObject("lock1");
-		LockObject lock2 = new LockObject("lock2");
-		Thread threadA = new Thread(new LockingThread(lock1, lock2));
-		Thread threadB = new Thread(new LockingThread(lock2, lock1));
-		threadA.start();
-		threadB.start();
-	}
-}
-
-class LockingThread implements Runnable{
-	LockObject lock1 = null;
-	LockObject lock2 = null;
-	LockingThread(LockObject lock1, LockObject lock2){
-		this.lock1 = lock1;
-		this.lock2 = lock2;
+		DeadlockTest test = new DeadlockTest();
+		test.execute();
 	}
 	
-	@Override
-	public void run() {
-		System.out.println("Waiting " + lock1.name + " by Thread " + Thread.currentThread().getName());
-		synchronized (lock1) {
-			System.out.println("Aquired " + lock1.name + " by Thread " + Thread.currentThread().getName());
-			System.out.println("Waiting " + lock2.name + " by Thread " + Thread.currentThread().getName());
-			synchronized (lock2) {
-				System.out.println("Aquired " + lock2.name + " by Thread " + Thread.currentThread().getName());
-			}
-		}
+	private void execute() {
+		new Thread(this::processThis).start();
+		new Thread(this::processThat).start();
 	}
 	
-}
-
-class LockObject {
-	String name;
-	LockObject(String name){
-		this.name = name;
+	private void processThis() {
+		lockA.lock();
+		System.out.println(Thread.currentThread().getName() + " processing resource A");
+		
+		lockB.lock();
+		System.out.println(Thread.currentThread().getName() + " processing resource B");
+		
+		
+		lockA.unlock();
+		lockB.unlock();
 	}
-	@Override
-	public String toString() {
-		return this.name;
+	
+	private void processThat() {
+		lockB.lock();
+		System.out.println(Thread.currentThread().getName() + " processing resource B");
+		
+		lockA.lock();
+		System.out.println(Thread.currentThread().getName() + " processing resource A");
+		
+		
+		lockA.unlock();
+		lockB.unlock();
+	}
+	
+	private static void detectedDeadLock() {
+		ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
+		long[] threadIds = threadBean.findDeadlockedThreads();
+		boolean deadLock = threadIds != null && threadIds.length > 0;
+		System.out.println("DeadLock found: " + deadLock);
 	}
 }

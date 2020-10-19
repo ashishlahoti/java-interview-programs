@@ -1,4 +1,4 @@
-package com.example.dp;
+package com.example.algo.recursive;
 
 /**
  * How many ways you can climb to given number of stairs

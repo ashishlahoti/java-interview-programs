@@ -1,4 +1,4 @@
-package com.example.dp;
+package com.example.algo.recursive;
 
 /**
  * Distinct ways to keep N balls into K Boxes?

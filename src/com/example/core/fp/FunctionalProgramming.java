@@ -3,16 +3,11 @@ package com.example.core.fp;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 
 public class FunctionalProgramming implements Java8Interface1 {
 
 	public static void main(String[] args){
-		
-		FunctionalProgramming fp = new FunctionalProgramming();
 		
 		//Java 7 way of writing
 		Thread t1 = new Thread(new Runnable(){

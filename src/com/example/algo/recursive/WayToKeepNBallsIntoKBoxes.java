@@ -1,16 +1,9 @@
-package com.example.dp;
+package com.example.algo.recursive;
 
 public class WayToKeepNBallsIntoKBoxes {
 
 	public static void main(String[] args) {
 		combination(4, 2);
-	}
-	
-	
-	private static void combination(int N) {
-		for(int i = 1; i<=N; i++) {
-			
-		}
 	}
 	
 	private static void combination(int N, int K){

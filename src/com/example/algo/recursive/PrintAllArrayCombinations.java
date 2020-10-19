@@ -1,4 +1,4 @@
-package com.example.dp;
+package com.example.algo.recursive;
 
 import java.util.Arrays;
 
@@ -13,14 +13,15 @@ public class PrintAllArrayCombinations {
 	 * @param index
 	 */
 	public static void printPermutations(int[] arr, int index) {
-		if(index >=arr.length) {
+		
+		if(index >=arr.length) {	
 			System.out.println(Arrays.toString(arr));
 			return;
 		}
-		for(int i=0; i<arr.length; i++) {
-			swap(arr, i, index);
+		for(int i=index; i<arr.length; i++) {
+			swap(arr, i, index);			
 			printPermutations(arr, index+1);
-			swap(arr, i, index); // reverse the previous swap effect
+			swap(arr, index, i);	//reverse the previous swap effect	
 		}
 	}
 	
