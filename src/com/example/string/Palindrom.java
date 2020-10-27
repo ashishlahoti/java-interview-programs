@@ -20,6 +20,4 @@ public class Palindrom {
 		}
 		return true;
 	}
-	
-	//public sttaiv 
 }

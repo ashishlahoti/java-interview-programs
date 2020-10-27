@@ -3,7 +3,7 @@ package com.example.string;
 public class FindDuplicatesInString {
 
 	public static void main(String[] args){
-		FindDuplicatesInString.printDuplicate("sadsasadsadc");
+		FindDuplicatesInString.printDuplicate("abcdefghijklmnopqrstuvwxyza");
 	}
 	
 	private static void printDuplicate(String s){

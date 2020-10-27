@@ -1,4 +1,4 @@
-package com.example.string;
+package com.example.array;
 
 public class FindTwoLargestNumbersInArray {
 
@@ -7,8 +7,8 @@ public class FindTwoLargestNumbersInArray {
 	}
 	
 	public static void printLargestNumbers(int[] array){
-		int num1 = 0;
-		int num2 = 0;
+		int num1 = Integer.MIN_VALUE;
+		int num2 = Integer.MIN_VALUE;
 		for (int i = 0; i < array.length; i++) {
 			if(array[i] > num1){
 				num2 = num1;

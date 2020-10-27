@@ -13,6 +13,12 @@ public class Anagram {
 		System.out.println(isAnagram("rat", "car"));
 	}
 	
+	/**
+	 * If Strings are anagram, they will be equal after sorting alphabetically
+	 * @param s
+	 * @param t
+	 * @return
+	 */
 	public static boolean isAnagram(String s, String t){
 		if(s == null || t == null) return false;
 		if(s.length() != t.length()) return false;
