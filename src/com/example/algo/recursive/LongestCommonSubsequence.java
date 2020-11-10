@@ -3,7 +3,7 @@ package com.example.algo.recursive;
 public class LongestCommonSubsequence {
 
 	public static void main(String[] args) {
-		System.out.println(longestCommonSubsequence("ashish", "sshj", 0, 0));
+		System.out.println(longestCommonSubsequence("abcdefghijk", "abcdxfghijl", 0, 0));
 	}
 	private static int longestCommonSubsequence(String s1, String s2, int i, int j) {
 		if(i ==s1.length() || j ==s2.length()) {

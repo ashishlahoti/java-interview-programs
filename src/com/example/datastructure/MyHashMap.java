@@ -6,6 +6,7 @@ public class MyHashMap<K, V> {
 	private int capacity;
 	private int DEFAULT_CAPACITY = 16;
 
+	@SuppressWarnings("unchecked")
 	MyHashMap() {
 		this.capacity = DEFAULT_CAPACITY;
 		this.table = new Entry[capacity];

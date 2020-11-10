@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class PingPongUsingReentrantCondition {
 
-	private static ReentrantLock lock = new ReentrantLock(true);
+	private static ReentrantLock lock = new ReentrantLock();
 	private Condition conditionMet = lock.newCondition();
 
 	public static void main(String[] args) {

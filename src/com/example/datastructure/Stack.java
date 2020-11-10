@@ -9,13 +9,15 @@ public class Stack {
 		stack.push(3);
 		stack.push(4);
 		stack.print();
-		//stack.pop();
-		//stack.print();
+		stack.pop();
+		stack.print();
 		stack.reverse();
 		stack.print();
 	}
 
 	ListNode<Integer> top;
+	
+	ListNode<Integer> next = null;
 	
 	ListNode<Integer> push(int i){
 		ListNode<Integer> n = new ListNode<>(i);
@@ -23,6 +25,8 @@ public class Stack {
 		top = n;
 		return n;
 	}
+	
+	
 	
 	int pop(){
 		ListNode<Integer> n = top;
@@ -40,17 +44,21 @@ public class Stack {
 			}
 		}
 	}
+	
 
 	void reverse(){
-		reverse(top, null);
+		reverse(top, top.next);
 	}
 	
-	void reverse(ListNode<Integer> current, ListNode<Integer> previous){
-		top = current;
-		if(current.next != null){
-			reverse(current.next, current);
-		}
-		current.next = (previous);
+	void reverse(ListNode<Integer> current, ListNode<Integer> nextNode) {
+		top = nextNode;
+		
+		current.next = (next);
+		next = nextNode;
+		
+		if(nextNode.next != null)
+			reverse(nextNode, nextNode.next);
+		nextNode.next = (current);
 	}
 	
 	boolean isEmpty(){

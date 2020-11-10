@@ -46,7 +46,7 @@ public class Queue {
 	}
 	
 	void print(){
-		ListNode n = last;
+		ListNode<Integer> n = last;
 		System.out.print("Last ");
 		while(n != null){
 			System.out.print(n.val + ", ");

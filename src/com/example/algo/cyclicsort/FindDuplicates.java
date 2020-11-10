@@ -14,7 +14,8 @@ public class FindDuplicates {
 		List<Integer> duplicates = findDuplicates(nums);
 		System.out.println(duplicates);
 		
-		int[] nums1 = new int[] {2,5,9,6,9,3,8,9,7,1};
+		// Approach goes wrong for this input. Use two pointer approach
+		int[] nums1 = new int[] {2, 5, 9, 6, 9, 3, 8, 9, 7, 1};
 		List<Integer> duplicates1 = findDuplicates(nums1);
 		System.out.println(duplicates1);
 	}

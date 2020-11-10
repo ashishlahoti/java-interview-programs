@@ -22,7 +22,7 @@ class Element {
 	@Override
 	public int hashCode() {
 		Random rn = new Random();
-		int randomNum = rn.nextInt(15);
+		int randomNum = rn.nextInt(2);
 		System.out.println("HashCode: " +randomNum);
 		return randomNum;
 	}

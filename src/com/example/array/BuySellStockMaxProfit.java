@@ -9,9 +9,6 @@ package com.example.array;
  * profit.
  * 
  * Note that you cannot sell a stock before you buy one.
- * 
- * @author ashishkumarlahoti
- *
  */
 public class BuySellStockMaxProfit {
 

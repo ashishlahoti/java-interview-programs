@@ -6,6 +6,7 @@ package com.example.algo.recursive;
 public class DistinctWaysNBallsKBoxes {
 
 	public static void main(String[] args) {
+		//N=6, K=2
 		distinctWays(6, 2);
 	}
 

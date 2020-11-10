@@ -2,12 +2,21 @@ package com.example.algo.backtrack;
 
 import java.util.Arrays;
 
+/**
+ * Place 4 queens in 4x4 chess board such that their placement is correct.
+ * A queen can not be placed in same row, same column or same diagonal of another queen.
+ *
+ */
 public class PlaceNQueens {
 
 	public static void main(String[] args) {
 		placeNQueens(new int[] {0, 1, 2, 3}, 0);
 	}
 	
+	/**
+	 * @param nums - index of array represent row and value at each index represent column of chess board.
+	 * @param index - start from 0 to N to find all combinations in recursive tree
+	 */
 	public static void placeNQueens(int[] nums, int index) {		
 		if(index == nums.length) {
 			if(isCorrectPlacement(nums)) {

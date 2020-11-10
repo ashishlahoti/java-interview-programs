@@ -11,7 +11,7 @@ public class MinimizeTheMaxDifferenceBtwHeights {
 	
 	/**
 	 * 
-	 * @param nums - find minimum different between two elements after adding or subtracting k
+	 * @param nums - find minimum difference between two elements after adding or subtracting k
 	 * @param k - either add or subtract from the element
 	 * @return
 	 */
