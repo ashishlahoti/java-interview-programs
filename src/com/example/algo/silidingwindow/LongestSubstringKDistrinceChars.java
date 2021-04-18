@@ -7,8 +7,8 @@ public class LongestSubstringKDistrinceChars {
 
 	public static void main(String[] args) {
 		System.out.println("Length of the longest substring: " + findLength("araaci", 2));
-		System.out.println("Length of the longest substring: " + findLength("araaci", 1));
-		System.out.println("Length of the longest substring: " + findLength("cbbebi", 3));
+		//System.out.println("Length of the longest substring: " + findLength("araaci", 1));
+		//System.out.println("Length of the longest substring: " + findLength("cbbebi", 3));
 	}
 
 	public static int findLength(String str, int k) {

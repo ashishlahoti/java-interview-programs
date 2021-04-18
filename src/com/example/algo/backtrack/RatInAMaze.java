@@ -8,11 +8,16 @@ package com.example.algo.backtrack;
 public class RatInAMaze {
 
 	public static void main(String[] args) {
-		int[][] ratMaze = new int[][] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+		int[][] ratMaze = new int[][] {{1, 1, 1}, 
+									   {1, 1, 0},
+									   {1, 1, 1}};
 		System.out.println(uniquePath(ratMaze, 0, 0));
 		
 		
-		ratMaze = new int[][]{{1, 0, 0, 0}, {1, 1, 0, 1}, {0, 1, 0, 0}, {1, 1, 1, 1}};
+		ratMaze = new int[][]{{1, 0, 0, 0}, 
+						      {1, 1, 0, 1},
+						      {0, 1, 0, 0},
+						      {1, 1, 1, 0}};
 		System.out.println(uniquePath(ratMaze, 0, 0));
 	}
 	
@@ -20,10 +25,10 @@ public class RatInAMaze {
 		int R = ratMaze.length;
 		int C = ratMaze[0].length;
 		
-		if(ratMaze[m][n] == 0) {
+		if(m >= R || n >=R || ratMaze[m][n] == 0) {
 			return 0;
 		}
-		if(m == R-1 || n == C-1) {
+		if(m == R-1 && n == C-1) {
 			return 1;
 		}
 		

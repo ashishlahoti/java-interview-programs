@@ -1,30 +1,35 @@
 package com.example.core.oops;
 
 public class Overiding {
- public static void main(String[] args){
-	 Parent p = new Child();
-	 p.print();
-	 p.hello();
- }
-	
-}
+	public static void main(String[] args) {
+		Animal animal = new Animal();
+		animal.makeSound();
+		// prints "Don't Know"
 
-class Parent {
-	public static void print(){
-		System.out.println("Parent");
-	}
-	
-	public void hello(){
-		System.out.println("Hello from parent");
+		Animal dog = new Dog();
+		dog.makeSound();
+		// prints "Bark"
+
+		Animal cat = new Cat();
+		cat.makeSound();
+		// prints "Meow"
 	}
 }
 
-class Child extends Parent {
-	public static void print(){
-		System.out.println("Child");
+class Animal {
+	public void makeSound() {
+		System.out.println("Don't Know");
 	}
-	
-	public void hello(){
-		System.out.println("Hello from child");
+}
+
+class Dog extends Animal {
+	public void makeSound() {
+		System.out.println("Bark");
+	}
+}
+
+class Cat extends Animal {
+	public void makeSound() {
+		System.out.println("Meow");
 	}
 }

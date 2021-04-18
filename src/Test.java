@@ -10,6 +10,7 @@ public class Test {
 		System.out.println(test(""));
 		System.out.println(test("a"));
 		System.out.println(test(null));
+		System.out.println(Integer.MIN_VALUE);
 	}
 	
 	public static boolean test(String s) {
@@ -26,4 +27,15 @@ public class Test {
 		}		
 		return true;
 	}
+	
+	public char findTheDifference(String s, String t) {
+        int charInt = 0;
+        for(int i=0; i<s.length(); i++){
+            charInt += (int) t.charAt(i);
+            charInt -= (int) s.charAt(i);
+            
+        }
+        charInt += t.charAt(t.length()-1);
+        return (char) charInt;
+    }
 }

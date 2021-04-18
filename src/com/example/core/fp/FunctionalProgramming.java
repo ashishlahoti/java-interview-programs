@@ -9,18 +9,20 @@ public class FunctionalProgramming implements Java8Interface1 {
 
 	public static void main(String[] args){
 		
+		String message = "Thread Started";
+		
 		//Java 7 way of writing
 		Thread t1 = new Thread(new Runnable(){
 			@Override
 			public void run() {
-				System.out.println("Thread started in Java7");
+				System.out.println(message + " in Java7");
 			}
 			
 		});
 		t1.start();
 		
 		//Java 8 way of writing
-		Thread t2 = new Thread(() -> System.out.println("Thread started in Java8"));
+		Thread t2 = new Thread(() -> System.out.println(message + " in Java8"));
 		t2.start();
 		
 		

@@ -51,4 +51,10 @@ public class ObjectInstance {
 			return (ObjectInstance) inputStream.readObject();
 		}
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 }

@@ -1,8 +1,9 @@
 package com.example.algo.graph;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 /**
@@ -20,21 +21,21 @@ public class CanVisitAllRooms {
 
 	public static boolean canVisitAllRooms(List<List<Integer>> rooms) {
 		System.out.println(rooms);
-		Stack<Integer> stack = new Stack<>();
-		boolean[] seen = new boolean[rooms.size()];
+		Queue<Integer> queue = new LinkedList<>();
+		boolean[] visited = new boolean[rooms.size()];
 		
-		stack.push(0); // we can enter first room, add key to first room
-		while (!stack.isEmpty()) {
-			int key = stack.pop(); // get key of first room
-			if(!seen[key]) {
-				seen[key] = true; // enter the first room
+		queue.offer(0); // we can enter first room, add key to first room
+		while (!queue.isEmpty()) {
+			int key = queue.remove(); // get key of first room
+			if(!visited[key]) {
+				visited[key] = true; // enter the first room
 				for (int otherKey : rooms.get(key)) {
-					stack.push(otherKey); // add all keys to stack from first room
+					queue.offer(otherKey); // add all keys to stack from first room
 				}				
 			}
 		}
 
-		for (boolean entered : seen) {
+		for (boolean entered : visited) {
 			if (!entered) {
 				return false;
 			}

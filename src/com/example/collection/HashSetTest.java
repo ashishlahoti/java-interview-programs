@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.collection;
 
 import java.util.HashSet;
 import java.util.Random;

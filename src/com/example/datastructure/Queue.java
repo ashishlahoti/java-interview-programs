@@ -1,5 +1,6 @@
 package com.example.datastructure;
 
+// FIFO - First In First Out
 public class Queue {
 	
 	public static void main(String[] args){

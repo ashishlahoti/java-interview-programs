@@ -1,5 +1,7 @@
 package com.example.sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
 
 	public static void main(String[] args){
@@ -10,15 +12,14 @@ public class QuickSort {
 		int lowerIndex = 0;
 		int higherIndex = array.length - 1;
 		partition(array, lowerIndex, higherIndex);
-		for(int i : array){
-			System.out.print(i + " ");
-		}
+		System.out.print(Arrays.toString(array));
 	}
 	
 	private static void partition(int[] array, int lowerIndex, int higherIndex){
 		int i = lowerIndex;
 		int j = higherIndex;
 		int pivot = array[(lowerIndex + higherIndex)/2];
+		System.out.println("Bef pivot:" + pivot + " " + Arrays.toString(array));
 		while(i <= j){
 			while(array[i] < pivot){
 				i++;
@@ -34,6 +35,8 @@ public class QuickSort {
 				j--;
 			}
 		}
+		System.out.println("Aft pivot:" + pivot + " " + Arrays.toString(array));
+		
 		if(lowerIndex < j){
 			partition(array, lowerIndex, j);
 		}

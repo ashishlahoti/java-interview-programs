@@ -18,6 +18,7 @@ public class PrintAllArrayCombinations {
 			System.out.println(Arrays.toString(arr));
 			return;
 		}
+		//print(arr, index);
 		for(int i=index; i<arr.length; i++) {
 			swap(arr, i, index);			
 			printPermutations(arr, index+1);
@@ -29,5 +30,12 @@ public class PrintAllArrayCombinations {
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
+	}
+	
+	public static void print(int[] nums, int size) {
+		for(int i=0; i<size; i++) {
+			System.out.print(nums[i] + ", ");
+		}
+		System.out.println();
 	}
 }

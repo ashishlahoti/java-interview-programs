@@ -1,4 +1,4 @@
-package com.example.array;
+package com.example.algo.cursor;
 
 /**
  * Remove the duplicate elements from the array and move the remaining arrays to the left

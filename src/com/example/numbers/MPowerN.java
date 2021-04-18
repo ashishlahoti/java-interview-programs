@@ -2,37 +2,18 @@ package com.example.numbers;
 
 public class MPowerN {
 
-	private static int count = 0;
-	
 	public static void main(String[] args){
-		System.out.println(MPowerN.pow(2, 40));
-		System.out.println(count);
-		count = 0;
-		
-		System.out.println(MPowerN.power(2, 40));
-		System.out.println(count);
+		System.out.println(MPowerN.pow(2, 5));
+		System.out.println(MPowerN.pow(2, -3));
 	}
 	
-	private static long power(long m, long n){
-		long cutpoint = getCutpoint(n);
-		long p = pow(m, n/cutpoint);
-		return pow(p, cutpoint);
-	}
-	
-	private static long pow(long m, long n){
-		count++;
-		return (n > 1) ? m*pow(m, n-1) : m;
-	}
-	
-	private static long getCutpoint(long n){
-		long cutpoint = 1;
-		for(int i=1; i<n; i++){
-			if(n%i != 0) continue;
-			long quotientDeviation = n/i - i;
-			if(quotientDeviation < 0){
-				return i;
-			}
+	private static double pow(double m, long n){
+		if(n == 0) return 1;
+		if(n < 0) {
+			n = -n;
+			m = 1/m;
 		}
-		return cutpoint;
+		return (n%2 == 0) ? pow(m*m, n/2) : m*pow(m*m, n/2);
 	}
+	
 }

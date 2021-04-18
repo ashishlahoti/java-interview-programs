@@ -47,7 +47,7 @@ public class BinaryTree {
 		System.out.print("\nLevel_Order:\t");
 		tree.levelOrderTraversal(tree.root, 3);
 		System.out.println("\n Tree");
-		tree.print(tree.root);
+		tree.levelOrderTraversalWithLevelNumber(tree.root);
 		System.out.println(tree.rightSideView(tree.root));
 	}
 }
@@ -272,6 +272,39 @@ class Tree {
 		}
 
 		return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+	}
+	
+	public void levelOrderTraversalWithLevelNumber(TreeNode node) {
+		if(node == null) {
+			return;
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(node);
+		int level = 0;
+		TreeNode nullTree = new TreeNode(-1);
+		while(!queue.isEmpty()) {
+			int size = queue.size();
+			level++;
+			System.out.print("Level " + level + ": ");
+			for(int i=0; i< size; i++) {
+				TreeNode t = queue.remove();
+				System.out.print(t.val + " ");
+				if(!(t.left == null && t.right == null)) {
+					if(t.left != null) {
+						queue.offer(t.left);
+					}else {
+						queue.offer(nullTree);
+					}
+					if(t.right != null) {
+						queue.offer(t.right);
+					}else {
+						queue.offer(nullTree);
+					}
+				}
+				
+			}
+			System.out.println();
+		}
 	}
 
 	public void print(TreeNode node) {

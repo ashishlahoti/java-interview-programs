@@ -50,9 +50,9 @@ public class BalancedBinaryTree {
 	public TreeNode delete(TreeNode node, int key) {
 	    if (node == null) {
 	        return node;
-	    } else if (node.key > key) {
+	    } else if (key < node.key) {
 	        node.left = delete(node.left, key);
-	    } else if (node.key < key) {
+	    } else if (key > node.key) {
 	        node.right = delete(node.right, key);
 	    } else { // found the node with key 
 	    	// node with only one child or no child  
@@ -90,22 +90,58 @@ public class BalancedBinaryTree {
   
         // If this node becomes unbalanced, then there are 4 cases 
         // Left Left Case 
+        /*
+			         z                                      y 
+			        / \                                   /   \
+			       y   T4      Right Rotate (z)          x      z
+			      / \          - - - - - - - - ->      /  \    /  \ 
+			     x   T3                               T1  T2  T3  T4
+			    / \
+			  T1   T2
+         */
         if (balance > 1 && getBalance(root.left) >= 0) {
         	return rotateRight(node); 
         }
         
         // Left Right Case 
+        /*
+	             z                               z                           x
+			    / \                            /   \                        /  \ 
+			   y   T4  Left Rotate (y)        x    T4  Right Rotate(z)    y      z
+			  / \      - - - - - - - - ->    /  \      - - - - - - - ->  / \    / \
+			T1   x                          y    T3                    T1  T2 T3  T4
+			    / \                        / \
+			  T2   T3                    T1   T2
+         */
         if (balance > 1 && getBalance(root.left) < 0) { 
             node.left = rotateLeft(node.left); 
             return rotateRight(node); 
         } 
   
         // Right Right Case 
+        /*
+              z                                y
+			 /  \                            /   \ 
+			T1   y     Left Rotate(z)       z      x
+			    /  \   - - - - - - - ->    / \    / \
+			   T2   x                     T1  T2 T3  T4
+			       / \
+			     T3  T4
+         */
         if (balance < -1 && getBalance(root.right) <= 0) {
         	return rotateLeft(node); 
         }
    
         // Right Left Case 
+        /*
+               z                            z                            x
+			  / \                          / \                          /  \ 
+			T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
+			    / \  - - - - - - - - ->     /  \   - - - - - - - ->  / \    / \
+			   x   T4                      T2   y                  T1  T2  T3  T4
+			  / \                              /  \
+			T2   T3                           T3   T4
+         */
         if (balance < -1 && getBalance(root.right) > 0) { 
             node.right = rotateRight(node.right); 
             return rotateLeft(node); 

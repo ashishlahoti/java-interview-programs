@@ -21,11 +21,11 @@ public class FindKthSmallestElement {
 	 */
 	public static int findKthSmallest(int[] nums, int low, int high, int k) {
 		if(high > low) {		
-			System.out.println(Arrays.toString(nums) + ", low: " + low + ", high: " + high);
+			//System.out.println(Arrays.toString(nums) + ", low: " + low + ", high: " + high);
 			int i = low;
 			int j = high;
 			int pivot = nums[(low+high)/2];
-			System.out.println("pivot:" + pivot);
+			//System.out.println("pivot:" + pivot);
 			while(i<j) {
 				if(nums[i] < pivot) {
 					i++;
@@ -45,7 +45,7 @@ public class FindKthSmallestElement {
 				if(low < j && low < k) {
 					return findKthSmallest(nums, low, j, k);
 				}
-				if(high > i && i < k) {
+				if(i < high && i < k) {
 					return findKthSmallest(nums, i, high, k);
 				}
 			}			
