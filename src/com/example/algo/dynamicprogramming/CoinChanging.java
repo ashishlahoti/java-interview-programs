@@ -13,6 +13,11 @@ import java.util.Arrays;
  * 2 5
  * 
  * solution[x] = solution[x] + solution[x - den]
+ *    0 1 2 3 4 5 6 7
+ *   |---------------
+ * 1 |1 1 1 1 1 1 1 1
+ * 2 |1 1 2 2 3 3 4 4
+ * 5 |1 1 2 2 3 4 5 6
  */
 public class CoinChanging {
 
@@ -34,6 +39,7 @@ public class CoinChanging {
 				solution[i] += solution[i - den];
 			}
 		}
+		System.out.println(Arrays.toString(solution));
 		return solution[solution.length - 1];
 	}
 

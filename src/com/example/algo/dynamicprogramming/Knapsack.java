@@ -2,6 +2,9 @@ package com.example.algo.dynamicprogramming;
 
 import java.util.Arrays;
 
+/**
+ * Problem: Find the maximum weight for given capacity
+ */
 public class Knapsack {
 
 	public static void main(String[] args) {

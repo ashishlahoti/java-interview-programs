@@ -1,7 +1,7 @@
 package com.example.algo.cursor;
 
 /**
- * Remove the duplicate elements from the array and move the remaining arrays to the left
+ * Problem: Array is sorted, Remove the duplicate elements from the array and move the remaining arrays to the left
  * Return the count of remaining elements
  */
 public class RemoveDuplicatesFromSortedArray {

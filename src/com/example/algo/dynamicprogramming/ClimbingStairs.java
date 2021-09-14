@@ -21,7 +21,6 @@ public class ClimbingStairs {
 		for(int i=2; i<=destStep; i++) {
 			dp[i] = dp[i-1] + dp[i-2];
 		}
-		Arrays.toString(dp);
 		return dp[destStep];
 	}
 	

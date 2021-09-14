@@ -1,5 +1,7 @@
 package com.example.algo.backtrack;
 
+import java.util.Arrays;
+
 /**
  * Find the number of islands in given MxN matrix
  * value 1 is island area and 0 is water area
@@ -32,7 +34,7 @@ public class NumberOfIslands {
 				}
 			}
 		}
-		
+		Arrays.stream(grid).forEach(array -> System.out.println(Arrays.toString(array)));
 		return count;
 	}
 	
