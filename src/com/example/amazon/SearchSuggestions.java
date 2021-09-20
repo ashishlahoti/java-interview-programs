@@ -13,11 +13,8 @@ public class SearchSuggestions {
         //List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("bags", "baggage", "banner", "box", "cloths"), "bags");
         List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("abbS"), "abc");
 
-
         System.out.println(result);
         //result.stream().forEach(list -> System.out.println(list));
-
-
     }
 
     public static List<List<String>> searchSuggestions(List<String> repository, String customerQuery) {

@@ -1,4 +1,4 @@
-package com.example.algo.silidingwindow;
+package com.example.algo.slidingwindow;
 
 /**
  * find the length of smallest contiguous sub array whose sum >= given sum

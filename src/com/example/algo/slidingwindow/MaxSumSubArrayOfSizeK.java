@@ -1,4 +1,4 @@
-package com.example.algo.silidingwindow;
+package com.example.algo.slidingwindow;
 
 /**
  * Find the max sum of contiguous sub array of size k

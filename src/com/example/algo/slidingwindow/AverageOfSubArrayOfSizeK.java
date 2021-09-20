@@ -1,4 +1,4 @@
-package com.example.algo.silidingwindow;
+package com.example.algo.slidingwindow;
 
 import java.util.Arrays;
 
