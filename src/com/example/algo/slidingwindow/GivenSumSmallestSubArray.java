@@ -14,14 +14,15 @@ public class GivenSumSmallestSubArray {
 		System.out.println("Smallest subarray length: " + result);
 	}
 	
-	public static int findMinSubArray(int s, int[] arr) {
-		int windowSum = 0, minLength = Integer.MAX_VALUE;
+	public static int findMinSubArray(int sum, int[] arr) {
+		int minLength = Integer.MAX_VALUE;
+		int windowSum = 0;
 		int windowStart = 0;
 		int windowEnd = 0;
 		while(windowEnd < arr.length) {
 			windowSum += arr[windowEnd++];
 			//slide the window if sum >= given sum to check other possible subarrays
-			while(windowSum >= s) {
+			while(windowSum >= sum) {
 				minLength = Math.min(minLength, windowEnd-windowStart);
 				windowSum -= arr[windowStart]; // subtract the element silding away
 				windowStart++; // slide window

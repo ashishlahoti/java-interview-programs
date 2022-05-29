@@ -3,7 +3,7 @@ package com.example.algo.slidingwindow;
 /**
  * Find the max sum of contiguous sub array of size k
  */
-public class MaxSumSubArrayOfSizeK {
+public class MaxSumOfSubArrayOfSizeK {
 
 	public static void main(String[] args) {
 		System.out.println(findMaxSumSubArray(3, new int[] { 2, 1, 5, 1, 3, 2 }));
