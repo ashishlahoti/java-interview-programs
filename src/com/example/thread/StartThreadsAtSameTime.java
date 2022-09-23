@@ -14,14 +14,13 @@ public class StartThreadsAtSameTime {
 			t.start();
 		}
 
-		// All threads wait until Countdown = 0
+		System.out.println("All threads wait until Countdown = 0");
 
 		// Decrement the Countdown 5 times
 		for (int i = 0; i < 5; i++) {
 			latch.countDown();
 		}
 
-		// Countdown = 0 at this point
 		// All threads start printing at this point
 	}
 

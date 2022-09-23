@@ -85,7 +85,7 @@ class Tree {
 		}		
 		if (val < node.val) {
 	        node.left = delete(node.left, val);
-	    } else if (val < node.val) {
+	    } else if (val > node.val) {
 	        node.right = delete(node.right, val);
 	    } else { // found the node with key 
 	    	// node with only one child or no child  

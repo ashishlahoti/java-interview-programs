@@ -7,13 +7,8 @@ public class CallableWithoutExecutor {
 
 	public static void main(String[] args) {
 		try {
-            Callable<String> c = new Callable<String>() {
-				@Override
-				public String call() throws Exception {
-					return "Ashish";
-				}
-            };
-            FutureTask<String> ft = new FutureTask<String>(c);
+            Callable<String> c = () -> "Ashish";
+            FutureTask<String> ft = new FutureTask<>(c);
             Thread t = new Thread(ft);
             t.start();
 

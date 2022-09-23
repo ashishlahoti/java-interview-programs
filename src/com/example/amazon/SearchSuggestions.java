@@ -10,8 +10,8 @@ public class SearchSuggestions {
 
     public static void main(String[] args) {
         //System.out.println(SearchSuggestions.searchSuggestions(List.of("mobile", "mouse", "moneypot", "monitor", "mousepad"), "mouse"));
-        //List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("bags", "baggage", "banner", "box", "cloths"), "bags");
-        List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("abbS"), "abc");
+        List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("bags", "baggage", "banner", "box", "cloths"), "bags");
+        //List<List<String>> result = SearchSuggestions.searchSuggestions(List.of("abbS"), "abc");
 
         System.out.println(result);
         //result.stream().forEach(list -> System.out.println(list));
